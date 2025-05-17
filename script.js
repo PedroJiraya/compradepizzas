@@ -44,3 +44,15 @@ pizzaJson.map((item, index)=>{
         
         })
 })                                                                                                                       
+
+cs('.pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton').forEach((item)=>{
+    item.addEventListener('click',closeModal)
+})
+
+function closeModal(){
+    c('.pizzaWindowArea').style.opacity = 0;
+    setTimeout(()=>{
+        c('.pizzaWindowArea').style.display = 'none'
+    },300)
+}
+
