@@ -87,14 +87,48 @@ c('.pizzaInfo--addButton').addEventListener('click',()=>{
     if(key > -1){
         cart[key].qt += modalQt
     }else{
-    cart.push({
-        identifier,
-        id:pizzaJson[modalKey].id,
-        size,
-        qt:modalQt
-        
+        cart.push({
+            identifier,
+            id:pizzaJson[modalKey].id,
+            size,
+            qt:modalQt
+            
         }
     )}
-
+    updateCart()
     closeModal()
 })
+function updateCart(){
+    if(cart.length >0){
+        c('aside').classList.add('show')
+        for(let i in cart){
+            let pizzaItem =pizzaJson.find((item)=>item.id == cart[i].id)
+
+            console.log(pizzaItem)
+            
+        }
+    }else{
+        c('aside').classList.remove('show')
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+c('.backToMarket').addEventListener('click', backToMarket)
+
+function backToMarket(){
+    c('aside').classList.remove('show')
+}
+
